@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View parameters</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/app.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/cpushop.css') }}"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .tableclass {
+            padding-top:20px;
+            color:black;
+            font-family:"SFNS Display";
+            font-size:1.2em;
+            }
+			.titlecard {
+				font-family:"SFNS Display";
+				text-align:center;
+                color:#646566;			
+			}
+    </style>
+
+</head>
+<body>
+	<div class="titlecard" style="padding-top:30px;">
+        
+        <h1>Parameters</h1>
+	</div>
+    <div class="main">
+        <div class="container">
+                <div class="tableclass">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Max speed</th>
+                            <th>Min altitude</th>
+                            <th>Max angle of attack</th>
+                            <th>Max rate of ascend</th>
+                            <th>Max distance from home</th>
+                            <th>Lowest battery level</th>
+							<th>Total time of flight</th>
+                            <th>Drone category</th>
+                        </tr>
+                    </thead>
+                        {% for row in data %}
+                        <tr>
+                            {% for value in row %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                </table>
+                </div>
+                <div class="form-submit">
+                    <center><input type="submit" name="submit" id="submit" class="submit" value="Update" onclick="goback()"/></center>
+				</div>
+        </div>
+
+    </div>
+    </div>
+    <!-- JS -->
+    <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{url_for('static',filename='js/signup-main.js') }}"></script>
+    <script>
+        function goback()
+        {
+            window.location.href = "{{url_for('sinput')}}";
+        }
+    </script>
+    </body>
+</html>

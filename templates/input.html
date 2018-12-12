@@ -1,0 +1,62 @@
+<!DOCTYPE html> <html lang="en">     <head>         <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">         <title>Supervisory
+    Control</title>
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/login.css') }}">
+
+</head>
+<body>
+	<div class="main">
+		<div class="container">
+			<form method="post" class="appointment-form" id="appointment-form" action="/update">
+				<h2>Supervisory Control</h2>
+				<div class="form-group">
+					<input type="text" name="max_speed" id="max_s"
+					placeholder="Maximum Speed"  />
+					<input type="text" name="min_alt" id="min_alt"
+					placeholder="Minimum altitude"  />
+					<input type="text" name="max_angle_attack" id="max_ang_att"
+					placeholder="Max angle of attack"  />
+					<input type="text" name="max_rate_ascend" id="max_rate_asc"
+					placeholder="Max rate of ascend"  />
+					<input type="text" name="max_distance_home" id="max_distance_home"
+					placeholder="Max distance from home"  />
+					<input type="text" name="low_battery_level" id="low_battery_level"
+					placeholder="Lowest battery level"  />
+					<input type="text" name="tot_time_flight" id="tot_time_flight"
+					placeholder="Total time of flight"  />
+					<input type="text" name="drone_category" id="drone_category"
+					placeholder="Drone category"  />
+				</div>
+				<div class="form-submit">
+					<input type="submit" name="submit" id="submit" class="submit" value="Update"/>
+				</div>
+
+
+			</form>
+		</div>
+
+	</div>
+<!-- JS -->
+<script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+<script src="{{url_for('static',filename='js/signup-main.js') }}"></script>
+    <script>
+        jQuery(function ($) {
+                var $inputs = $('input[name=max_speed],input[name=min_alt],input[name=max_angle_attack],input[name=max_rate_ascend],input[name=low_battery_level],input[name=tot_time_flight],input[name=drone_category],input[name=max_distance_home]');
+                $inputs.on('input', function () {
+                            var total = $('input[name=max_distance_home]').val().length +
+                        $('input[name=max_speed]').val().length +
+                        $('input[name=min_alt]').val().length +
+                        $('input[name=max_angle_attack]').val().length +
+                        $('input[name=max_rate_ascend]').val().length +
+                        $('input[name=low_battery_level]').val().length +
+                        $('input[name=tot_time_flight]').val().length +
+                        $('input[name=drone_category]').val().length;
+                        
+                            $inputs.not(this).prop('required', !total);
+
+                        });
+        });
+    </script>
+</body>
+</html>

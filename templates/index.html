@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign in to pcQrators</title>
+        <link rel="stylesheet" href= "{{ url_for('static',filename='styles/login.css') }}">
+
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <form method="post" class="appointment-form" id="appointment-form" action="/login">
+                    <h2>Sign in</h2>
+                    <div class="form-group-1">
+                        <input type="text" name="username" id="uname" placeholder="Username" required />
+                        <input type="password" name="password" id="pwd" placeholder="Password" required />
+
+                    </div>
+                    <div class="form-submit">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Sign in"/>&nbsp;&nbsp;&nbsp;
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+        </div>
+        <!-- JS -->
+        <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/signup-main.js') }}"></script>
+    </body>
+</html>
